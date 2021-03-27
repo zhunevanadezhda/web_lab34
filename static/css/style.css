@@ -1,0 +1,25 @@
+.completed-todo{
+    text-decoration: line-through !important;
+}
+
+.header-block {
+    display: inline-block;
+    width: 60%;
+}
+
+.form-control-lg {
+    font-size: 1.3rem;
+}
+
+.info-block{
+    width: 80%;
+    font-size: 25pt;
+    font-wight: bold;
+    background: #BCE232;
+}
+
+.task_header{
+    font-size: 65pt;
+    text-decoration: underline;
+}
+

@@ -1,0 +1,50 @@
+{% extends "layouts/base_layout.html" %}
+
+{% block main %}
+    {% if user %}
+
+        <div id="error" class="alert alert-danger" style="display: none"></div>
+        <section id="section-container">
+        <div id="loading" class="text-center m-5" style="display: none">
+                <div class="spinner-border"></div>
+        </div>
+            <div class="d-flex">
+              <form action="/" method="POST" class="card-body float-right">
+                      {% if error %}
+                          <div class="alert alert-danger">
+                             {{ error }}
+                          </div>
+                      {% endif %}
+
+                      <div class="form-group">
+                          <label for="task_input">Название задачи:</label>
+                          <input type="text" name="task_name" class="form-control" id="task_input">
+                      </div>
+                     <div class="form-group">
+                          <label for="description_input">Описание задачи:</label>
+                          <input type="text" name="task_description" class="form-control" id="description_input">
+                      </div>
+                      <button type="submit" class="btn btn-info">Добавить задачу</button>
+              </form>
+           </div>
+
+          <div class="task_block">
+              <ul id="todo-list" class="list-group">
+              {% for i in range(0, len) %}
+              <li class="list-group-item list-group-item-action todo-item" data-id="{{ task[i][0] }}">
+                  <div class="header-block" id="header-block{{ task[i][0] }}">
+                      <h4 class="task_header" data-toggle="collapse" data-target="#demo{{ task[i][0] }}">
+                          {{ task[i][1] }}
+                      </h4>
+                  </div>
+              </li>
+              {% endfor %}
+              </ul>
+          </div>
+        </section>
+    {% else %}
+    <div class="alert alert-success">
+        ToDo Сервис
+    </div>
+    {% endif %}
+{% endblock %}
